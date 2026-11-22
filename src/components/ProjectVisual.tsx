@@ -1,5 +1,6 @@
 import React from 'react';
 import { PROJECTS, ProjectSlug, VERIFIED_ARTWORKS } from '../data/projects';
+import { resolvePublicAssetUrl } from '../utils/urls';
 
 interface ProjectVisualProps {
   slug: ProjectSlug;
@@ -47,7 +48,7 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({
   return (
     <div className={`relative size-full overflow-hidden bg-neutral-100 select-none ${className}`}>
       <img
-        src={resolvedSrc}
+        src={resolvePublicAssetUrl(resolvedSrc)}
         alt={resolvedAlt}
         className="size-full object-contain"
         draggable={false}

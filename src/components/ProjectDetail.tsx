@@ -4,6 +4,7 @@ import { formatScrollPercent, scrambleTextAtProgress } from '../utils/gridMath';
 import { BrandLogo } from './BrandLogo';
 import { CropMarks } from './CropMarks';
 import { ProjectVisual } from './ProjectVisual';
+import { withBasePath } from '../utils/urls';
 
 interface ProjectDetailProps {
   slug: ProjectSlug;
@@ -424,7 +425,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
         <section
           ref={nextZoneRef}
           data-next-zone
-          data-next-href={`/work/${nextProject.slug}`}
+          data-next-href={withBasePath(`/work/${nextProject.slug}`)}
           className="relative mt-40 h-[210svh] border-t border-neutral-200"
         >
           <div className="sticky top-0 grid h-svh grid-cols-12 grid-rows-[auto_auto_1fr_auto] gap-x-4 gap-y-6 pt-16 pb-12 md:grid-rows-[auto_1fr]">
@@ -437,7 +438,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
             <div className="col-span-12 flex min-h-0 flex-col justify-between gap-10 max-md:contents md:col-span-4">
               <a
-                href={`/work/${nextProject.slug}`}
+                href={withBasePath(`/work/${nextProject.slug}`)}
                 onClick={(e) => {
                   e.preventDefault();
                   onSelectProject(nextProject.slug);

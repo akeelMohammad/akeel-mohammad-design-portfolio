@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opening page...</title>
+    <script>
+      (function () {
+        var base = '/akeel-mohammad-design-portfolio/';
+        var path = window.location.pathname;
+        var route = path.startsWith(base) ? path.slice(base.length) : path.replace(/^\/+/, '');
+        var query = window.location.search;
+        window.location.replace(
+          base + '?redirect=' +
+          encodeURIComponent('/' + route) +
+          (query ? '&' + query.replace(/^&/, '').replace(/^\?/, '') : '') +
+          window.location.hash
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

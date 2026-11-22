@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var redirect = new URLSearchParams(window.location.search).get('redirect');
+        if (redirect) {
+          var base = '/akeel-mohammad-design-portfolio/';
+          window.history.replaceState(null, '', base + redirect.replace(/^\/+/, ''));
+        }
+      })();
+    </script>
     <title>Akeel Mohammad — Graphic Designer &amp; Digital Creative</title>
     <meta name="description" content="Portfolio of Akeel Mohammad, a graphic designer and digital creative specializing in visual storytelling, branding, packaging, digital content, and experimental art." />
     <meta property="og:title" content="Akeel Mohammad — Graphic Designer &amp; Digital Creative" />

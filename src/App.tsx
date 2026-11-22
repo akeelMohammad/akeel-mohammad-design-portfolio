@@ -10,9 +10,13 @@ import { LoaderOverlay } from './components/LoaderOverlay';
 import { ProjectDetail } from './components/ProjectDetail';
 import { ReticleCursor } from './components/ReticleCursor';
 import { PROJECTS, ProjectSlug } from './data/projects';
+import { withBasePath } from './utils/urls';
 
 function parseRouteFromLocation(): { view: 'index' | 'project'; slug: ProjectSlug } {
-  const path = window.location.pathname;
+  const base = import.meta.env.BASE_URL;
+  const path = window.location.pathname.startsWith(base)
+    ? `/${window.location.pathname.slice(base.length)}`
+    : window.location.pathname;
   const match = path.match(/^\/(?:work|projects)\/([a-z0-9-]+)\/?$/i);
   if (match && match[1] in PROJECTS) {
     return { view: 'project', slug: match[1] as ProjectSlug };
@@ -53,12 +57,12 @@ export default function App() {
   }, [route]);
 
   const navigateToProject = useCallback((slug: ProjectSlug) => {
-    window.history.pushState({}, '', `/work/${slug}`);
+    window.history.pushState({}, '', withBasePath(`/work/${slug}`));
     setRoute({ view: 'project', slug });
   }, []);
 
   const navigateToIndex = useCallback(() => {
-    window.history.pushState({}, '', '/');
+    window.history.pushState({}, '', import.meta.env.BASE_URL);
     setRoute({ view: 'index', slug: 'ceylon-teanora' });
     setGridReady(true);
   }, []);

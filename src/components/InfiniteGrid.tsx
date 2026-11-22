@@ -18,6 +18,7 @@ import {
 import { BrandLogo } from './BrandLogo';
 import { CropMarks } from './CropMarks';
 import { ProjectVisual } from './ProjectVisual';
+import { withBasePath } from '../utils/urls';
 
 interface InfiniteGridProps {
   isReady: boolean;
@@ -407,7 +408,7 @@ export const InfiniteGrid: React.FC<InfiniteGridProps> = ({
                 if (el) tileElsRef.current.set(tile.instanceId, el);
                 else tileElsRef.current.delete(tile.instanceId);
               }}
-              href={`/work/${tile.slug}`}
+              href={withBasePath(`/work/${tile.slug}`)}
               onClick={(e) => handleTileClick(e, tile.slug)}
               onPointerEnter={() => handleTileHover(tile)}
               draggable={false}

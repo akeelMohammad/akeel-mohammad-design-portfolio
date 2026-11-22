@@ -1,4 +1,5 @@
 import React from 'react';
+import { resolvePublicAssetUrl } from '../utils/urls';
 
 interface BrandLogoProps {
   className?: string;
@@ -28,7 +29,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         className={`block shrink-0 select-none ${invertForExclusion ? 'invert' : ''} ${className}`}
       >
         <image
-          href="./assets/aistudio/image_56_37fbed9d.png"
+          href={resolvePublicAssetUrl('./assets/aistudio/image_56_37fbed9d.png')}
           width="260"
           height="260"
         />
