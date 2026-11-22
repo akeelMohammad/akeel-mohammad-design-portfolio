@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-special-gothic: "Special Gothic", "Archivo", "Noto Sans Sinhala", "Arial Bold", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-neutral-100: oklch(97% 0 none);
+    --color-neutral-200: oklch(92.2% 0 none);
+    --color-neutral-300: oklch(87% 0 none);
+    --color-neutral-400: oklch(70.8% 0 none);
+    --color-neutral-600: oklch(43.9% 0 none);
+    --color-neutral-950: oklch(14.5% 0 none);
+    --ease-loum: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  html,
+  body {
+    font-family: var(--font-special-gothic);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background-color: #ffffff;
+    color: var(--color-neutral-950);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Studio Loum floating frosted glass menu shell */
+.menu-shell {
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  backdrop-filter: blur(24px) saturate(1.6);
+  background: rgba(255, 255, 255, 0.72);
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    inset 0 0 0 1px rgba(10, 10, 10, 0.06),
+    inset 0 1px rgba(255, 255, 255, 0.8),
+    0 12px 32px -12px rgba(10, 10, 10, 0.25);
+}
+
+.menu-shell.is-open {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.menu-item {
+  text-transform: uppercase;
+  align-items: baseline;
+  gap: 3px;
+  transition: color 0.25s ease;
+  display: inline-flex;
+}
+
+.menu-item sup {
+  vertical-align: baseline;
+  color: var(--color-neutral-400);
+  font-size: 8px;
+  line-height: 1;
+  position: static;
+  transform: translateY(-4.5px);
+}
+
+.menu-item:focus {
+  outline: none;
+}
+
+.menu-item:focus-visible span {
+  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+
+.menu-item:hover {
+  color: var(--color-neutral-400);
+}
+
+.menu-item[aria-current="page"] span::before,
+.menu-item[aria-expanded="true"] span::before {
+  content: "";
+  vertical-align: 1px;
+  background: currentColor;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
+/* Technical Print Crop Marks, Center Ticks, and Dimension Calipers */
+.crop,
+.tick,
+.dim {
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    translate 0.5s cubic-bezier(0.2, 0.7, 0, 1);
+  position: absolute;
+}
+
+.crop {
+  width: 0;
+  height: 0;
+}
+
+.crop::before,
+.crop::after {
+  content: "";
+  background: var(--color-neutral-950);
+  position: absolute;
+}
+
+.crop::before {
+  width: 12px;
+  height: 1px;
+}
+
+.crop::after {
+  width: 1px;
+  height: 12px;
+}
+
+.crop-tl {
+  top: 0;
+  left: 0;
+  translate: -8px -8px;
+}
+.crop-tl::before {
+  top: 0;
+  left: -20px;
+}
+.crop-tl::after {
+  top: -20px;
+  left: 0;
+}
+
+.crop-tr {
+  top: 0;
+  right: 0;
+  translate: 8px -8px;
+}
+.crop-tr::before {
+  top: 0;
+  left: 8px;
+}
+.crop-tr::after {
+  top: -20px;
+  left: -1px;
+}
+
+.crop-bl {
+  bottom: 0;
+  left: 0;
+  translate: -8px 8px;
+}
+.crop-bl::before {
+  top: -1px;
+  left: -20px;
+}
+.crop-bl::after {
+  top: 8px;
+  left: 0;
+}
+
+.crop-br {
+  bottom: 0;
+  right: 0;
+  translate: 8px 8px;
+}
+.crop-br::before {
+  top: -1px;
+  left: 8px;
+}
+.crop-br::after {
+  top: 8px;
+  left: -1px;
+}
+
+.tick {
+  background: var(--color-neutral-400);
+}
+
+.tick-t,
+.tick-b {
+  width: 1px;
+  height: 6px;
+  left: 50%;
+}
+.tick-t {
+  top: -12px;
+}
+.tick-b {
+  bottom: -12px;
+}
+
+.tick-l,
+.tick-r {
+  width: 6px;
+  height: 1px;
+  top: 50%;
+}
+.tick-l {
+  left: -12px;
+}
+.tick-r {
+  right: -12px;
+}
+
+.dim {
+  border-inline: 1px solid var(--color-neutral-400);
+  height: 7px;
+  top: calc(100% + 14px);
+  left: 0;
+  right: 0;
+  translate: 0 -4px;
+}
+
+.dim::before {
+  content: "";
+  background: var(--color-neutral-300);
+  height: 1px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+}
+
+.dim > span {
+  white-space: nowrap;
+  background: #ffffff;
+  padding-inline: 4px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.marks-on :is(.crop, .tick, .dim),
+.marks-hover:hover :is(.crop, .tick, .dim) {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Tile title transition on hover */
+.tile:hover .tile-title {
+  color: var(--color-neutral-950);
+}
