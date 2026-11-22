@@ -51,7 +51,7 @@ export const LOADER_CARDS: LoaderCardConfig[] = [
     categoryLabel: 'Posters & Campaigns',
     title: 'Wetland Cleanup — Beddagama Wetland Park',
     variant: 1,
-    imageSrc: './src./assets/portfolio/poster-18-wetland-cleanup-8-.jpg',
+    imageSrc: './assets/portfolio/poster-18-wetland-cleanup-8-.jpg',
     widthPx: 276,
     heightPx: 345,
     initialRotate: 9,
