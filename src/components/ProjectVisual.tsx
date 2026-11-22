@@ -52,6 +52,15 @@ export const ProjectVisual: React.FC<ProjectVisualProps> = ({
         alt={resolvedAlt}
         className="size-full object-contain"
         draggable={false}
+        onError={(event) => {
+          const image = event.currentTarget;
+          if (!resolvedSrc) return;
+          const publicPath = resolvedSrc.replace(/^\.?\/*/, '');
+          const fallback = `${window.location.origin}${import.meta.env.BASE_URL}${publicPath}`;
+          if (image.src !== fallback) {
+            image.src = fallback;
+          }
+        }}
       />
     </div>
   );

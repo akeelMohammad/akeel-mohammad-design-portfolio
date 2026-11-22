@@ -11,5 +11,9 @@ export function resolvePublicAssetUrl(src: string): string {
   }
 
   const publicPath = src.replace(/^\.?\/*/, '');
-  return withBasePath(publicPath);
+  const baseUrl = withBasePath(publicPath);
+  if (typeof window !== 'undefined') {
+    return new URL(baseUrl, window.location.origin).href;
+  }
+  return baseUrl;
 }
