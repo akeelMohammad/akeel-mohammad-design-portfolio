@@ -12,7 +12,7 @@ interface BrandLogoProps {
 }
 
 /**
- * Renders Akeel Mohammad's official "am" monogram logo (`/assets/aistudio/image_56_37fbed9d.png`),
+ * Renders Akeel Mohammad's official "am" monogram logo (`./assets/aistudio/image_56_37fbed9d.png`),
  * framed to its exact non-transparent glyph bounds (viewBox="42 95 176 67" inside 260×260)
  * so it aligns flush-left and scales crisply at any size.
  */
@@ -28,7 +28,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         className={`block shrink-0 select-none ${invertForExclusion ? 'invert' : ''} ${className}`}
       >
         <image
-          href="/assets/aistudio/image_56_37fbed9d.png"
+          href="./assets/aistudio/image_56_37fbed9d.png"
           width="260"
           height="260"
         />

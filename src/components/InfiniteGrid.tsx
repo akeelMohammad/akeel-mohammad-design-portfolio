@@ -318,7 +318,7 @@ export const InfiniteGrid: React.FC<InfiniteGridProps> = ({
       {/* Fixed Top Header with mix-blend-exclusion */}
       <header className="pointer-events-none fixed inset-x-0 top-0 z-40 grid grid-cols-12 gap-4 px-4 pt-3 text-sm uppercase text-white mix-blend-exclusion">
         <a
-          href="/"
+          href="./"
           onClick={(e) => e.preventDefault()}
           data-brand
           aria-label="Akeel Mohammad"

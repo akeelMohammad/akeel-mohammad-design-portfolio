@@ -301,7 +301,7 @@ export const FloatingMenu: React.FC<FloatingMenuProps> = ({
           className="flex items-center justify-between gap-5 px-4.5 py-4 text-[12px] whitespace-nowrap uppercase md:gap-6 md:px-4 md:py-3.5 md:text-[11px]"
         >
           <a
-            href="/"
+            href="./"
             onClick={handleIndexClick}
             aria-label="Akeel Mohammad Home"
             data-menu-logo
@@ -313,7 +313,7 @@ export const FloatingMenu: React.FC<FloatingMenuProps> = ({
           <ul className="flex shrink-0 items-center gap-4 md:gap-5">
             <li>
               <a
-                href="/"
+                href="./"
                 onClick={handleIndexClick}
                 aria-current={isIndexPage && activePanel === 'none' ? 'page' : undefined}
                 onPointerEnter={() => runScramble('index', 'Index', setIndexText)}
